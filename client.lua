@@ -4,7 +4,7 @@ local ShowNotification = function(text)
     DrawNotification(true, true)
 end
 
-Config = {
+local Config = {
     affectsVehicles = false,
     enterModeSound = { name = "Power_Down", ref = "DLC_HEIST_HACKING_SNAKE_SOUNDS" },
     exitModeSound = { name = "police_notification", ref = "DLC_AS_VNT_Sounds" }
