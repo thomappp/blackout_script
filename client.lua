@@ -5,9 +5,9 @@ local ShowNotification = function(text)
 end
 
 local Config = {
-    affectsVehicles = false,
-    enterModeSound = { name = "Power_Down", ref = "DLC_HEIST_HACKING_SNAKE_SOUNDS" },
-    exitModeSound = { name = "police_notification", ref = "DLC_AS_VNT_Sounds" }
+    affectsVehicles = false;
+    textOn = "~y~Blackout activé\n~s~Les lumières de la ville se sont éteintes.",
+    textOff = "~y~Blackout désactivé\n~s~Les lumières de la ville se sont allumées."
 }
 
 RegisterNetEvent("blackout_script:toggle_mode")
@@ -16,10 +16,8 @@ AddEventHandler("blackout_script:toggle_mode", function(boolean)
     SetArtificialLightsStateAffectsVehicles(Config.affectsVehicles)
 
     if boolean then
-        ShowNotification("~y~Blackout activé\n~s~Les lumières de la ville se sont éteintes.")
-        PlaySoundFrontend(-1, Config.enterModeSound.name, Config.enterModeSound.ref, 1)
+        ShowNotification(Config.textOn)
     else
-        ShowNotification("~y~Blackout désactivé\n~s~Les lumières de la ville se sont allumées.")
-        PlaySoundFrontend(-1, Config.exitModeSound.name, Config.exitModeSound.ref, 1)
+        ShowNotification(Config.textOff)
     end
 end)
